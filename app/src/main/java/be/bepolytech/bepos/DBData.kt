@@ -1,5 +1,6 @@
 package be.bepolytech.bepos
 
+/*
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -32,3 +33,4 @@ data class Restock(
     @ColumnInfo(name="price") val price: Float
 )
 
+*/

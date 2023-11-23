@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/FirstFragment"
         android:name="be.bepolytech.bepos.OptionsFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/options_fragment_label"
         tools:layout="@layout/fragment_first">
 
         <action
