@@ -293,7 +293,7 @@ fun BEPOSScaffoldHome(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, device = "spec:parent=Lenovo Tab M9,orientation=landscape")
 @Composable
 fun HomePreview() {
     BEPOSTheme {
