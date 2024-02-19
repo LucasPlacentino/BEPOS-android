@@ -53,4 +53,5 @@
     <string name="home">Home</string>
     <string name="last_list_item">This is below all items in the list, a descriptive text that can be used for anything, it also allows to see the entire line of the last card item (especially on the right, which might appear under the big FAB button)</string>
     <string name="shopping_cart">Cart</string>
+    <string name="stock">Stock</string>
 </resources>

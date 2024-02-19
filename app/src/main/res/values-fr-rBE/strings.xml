@@ -3,4 +3,5 @@
     <string name="action_settings">Options</string>
     <string name="fab_action">Nouvelle Transaction</string>
     <string name="shopping_cart">Panier</string>
+    <string name="stock">Stock</string>
 </resources>

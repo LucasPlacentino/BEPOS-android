@@ -1,5 +1,6 @@
 package be.bepolytech.bepos
 
+import android.R.attr.maxLines
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,10 +20,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.AddCircleOutline
 import androidx.compose.material.icons.filled.AddShoppingCart
 import androidx.compose.material.icons.filled.Backspace
-import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material.icons.filled.PlayArrow
@@ -55,6 +54,7 @@ import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import be.bepolytech.bepos.ui.theme.BEPOSTheme
+
 
 //
 // ---------- USE THIS ------------
@@ -154,21 +154,43 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                         //selected = currentRoute == restockRoute
                         onClick = { /*TODO*/ },
                         icon = {
-                            Icon(
-                                imageVector = Icons.Filled.Home,
-                                contentDescription = stringResource(id = R.string.home)
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Filled.Home,
+                                        contentDescription = stringResource(id = R.string.home)
+                                    )
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = stringResource(id = R.string.home),
+                                        maxLines = 1,
+                                    )
+                                },
                             )
                         },
-                        //label = { Text(text = stringResource(id = R.string.home), maxLines = 1)}
                     )
                     NavigationBarItem(
                         selected = true,
                         //selected = currentRoute == restockRoute
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                                  /*TODO*/
+                                  // navigate to this screen
+                            },
                         icon = {
-                            Icon(
-                                imageVector = Icons.Filled.Inventory,
-                                contentDescription = stringResource(id = R.string.inventory)
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Filled.Inventory,
+                                        contentDescription = stringResource(id = R.string.inventory)
+                                    )
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = stringResource(id = R.string.stock),
+                                        maxLines = 1,
+                                    )
+                                },
                             )
                         },
                         //label = { Text(text = stringResource(id = R.string.inventory), maxLines = 1)}
