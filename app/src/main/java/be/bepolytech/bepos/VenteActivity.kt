@@ -47,6 +47,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -367,36 +368,12 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                     ) {
                         Text(
                             modifier = Modifier
-                                .weight(2f)
-                                .padding(horizontal = 16.dp),
+                                .padding(12.dp),
                             text = stringResource(id = R.string.shopping_cart),
-                            fontSize = 32.sp,
+                            fontSize = 24.sp,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
-                        Text(
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(start = 4.dp),
-                            textAlign = TextAlign.End,
-                            text = "Total: ",
-                            fontSize = 20.sp,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                        OutlinedButton(
-                            modifier = Modifier
-                                .weight(3f)
-                                .padding(8.dp),
-                            onClick = { /* do nothing */ }
-                        ) {
-                            Text(
-                                text = "24.50 €",
-                                fontSize = 32.sp,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis,
-                            )
-                        }
                     }
                     LazyColumn(
                         // Column-list of items in cart
@@ -433,6 +410,17 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                             .size(52.dp)
                                             .padding(horizontal = 8.dp, vertical = 4.dp),
                                     )
+                                    Text(
+                                        modifier = Modifier
+                                            .weight(0.5f)
+                                            .fillMaxWidth(),
+                                            //.padding(8.dp),
+                                        // quantity and unit price
+                                        text = "$cartItem x",
+                                        fontWeight = FontWeight.Bold,
+                                        textAlign = TextAlign.Center,
+                                        maxLines = 1,
+                                    )
                                     Icon(
                                         imageVector = Icons.Filled.RemoveCircle,
                                         contentDescription = "remove one of this item",
@@ -447,7 +435,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                             .fillMaxWidth()
                                             .padding(8.dp),
                                         // quantity and unit price
-                                        text = "$cartItem x $cartItem.00 €",
+                                        text = "$cartItem.00 €",
                                         textAlign = TextAlign.End,
                                     )
                                 }
@@ -489,6 +477,49 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 modifier = Modifier.padding(8.dp),
                                 textAlign = TextAlign.Center,
                                 text = stringResource(id = R.string.last_list_item),
+                            )
+                        }
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {Text(
+                            modifier = Modifier
+                                .weight(0.8f)
+                                .padding(start = 4.dp),
+                            textAlign = TextAlign.End,
+                            text = "Total: ",
+                            fontSize = 20.sp,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        OutlinedButton(
+                            modifier = Modifier
+                                .weight(2f)
+                                .padding(8.dp),
+                            onClick = { /* do nothing */ }
+                        ) {
+                            Text(
+                                text = "24.50 €",
+                                fontSize = 32.sp,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        }
+                        Button(
+                            modifier = Modifier
+                                .weight(1.6f)
+                                .padding(8.dp),
+                            onClick = {
+                                /*TODO*/
+                                // pay amount
+                            }
+                        ) {
+                            Text(
+                                text = "Payer",
+                                fontSize = 32.sp,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
                             )
                         }
                     }
@@ -544,7 +575,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 onClick = { /*TODO*/ }
                             ) {
                                 Text(
-                                    text = "Payer",
+                                    text = "Add",
                                     fontSize = 28.sp,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis
@@ -593,13 +624,19 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                     contentPadding = PaddingValues(0.dp),
                                     onClick = {
                                         /*TODO*/
-                                        // totalPriceInt = 0
+                                        // customPriceInt = 0
                                     }
                                 ) {
-                                    Icon(
+                                    /*Icon(
                                         imageVector = Icons.Filled.Add,
                                         contentDescription = "Clear",
                                         modifier = Modifier.size(60.dp),
+                                    )*/
+                                    Text(
+                                        text = "C",
+                                        fontSize = 40.sp,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis
                                     )
                                 }
                             }
