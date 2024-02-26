@@ -4,6 +4,7 @@ import android.R.attr.maxLines
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -21,7 +22,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.AddShoppingCart
+import androidx.compose.material.icons.filled.Attractions
 import androidx.compose.material.icons.filled.Backspace
+import androidx.compose.material.icons.filled.Event
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Inventory
 import androidx.compose.material.icons.filled.PlayArrow
@@ -47,6 +50,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -152,7 +156,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
 
                     NavigationBarItem(
                         selected = true,
-                        //selected = currentRoute == restockRoute
+                        //selected = currentRoute == saleRoute // homeRoute
                         onClick = { /*TODO*/ },
                         icon = {
                             Column(
@@ -160,11 +164,11 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 content = {
                                     Icon(
                                         imageVector = Icons.Filled.Home,
-                                        contentDescription = stringResource(id = R.string.home)
+                                        contentDescription = stringResource(id = R.string.sale)
                                     )
                                     Text(
                                         textAlign = TextAlign.Center,
-                                        text = stringResource(id = R.string.home),
+                                        text = stringResource(id = R.string.sale),
                                         maxLines = 1,
                                     )
                                 },
@@ -172,8 +176,8 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                         },
                     )
                     NavigationBarItem(
-                        selected = true,
-                        //selected = currentRoute == restockRoute
+                        selected = false,
+                        //selected = currentRoute == inventoryRoute
                         onClick = {
                                   /*TODO*/
                                   // navigate to this screen
@@ -197,37 +201,89 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                         //label = { Text(text = stringResource(id = R.string.inventory), maxLines = 1)}
                     )
                     NavigationBarItem(
-                        selected = true,
+                        selected = false,
                         //selected = currentRoute == transactionsRoute
                         onClick = { /*TODO*/ },
                         icon = {
-                            Icon(
-                                imageVector = Icons.Filled.ReceiptLong,
-                                contentDescription = stringResource(id = R.string.transactions)
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Filled.ReceiptLong,
+                                        contentDescription = stringResource(id = R.string.transactions)
+                                    )
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = stringResource(id = R.string.transactions),
+                                        maxLines = 1,
+                                    )
+                                }
                             )
                         },
                         //label = { Text(text = stringResource(id = R.string.transactions), maxLines = 1)}
                     )
                     NavigationBarItem(
-                        selected = true,
+                        selected = false,
                         //selected = currentRoute == restockRoute
                         onClick = { /*TODO*/ },
                         icon = {
-                            Icon(
-                                imageVector = Icons.Filled.AddShoppingCart,
-                                contentDescription = stringResource(id = R.string.restock)
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Filled.AddShoppingCart,
+                                        contentDescription = stringResource(id = R.string.restock)
+                                    )
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = stringResource(id = R.string.restock),
+                                        maxLines = 1,
+                                    )
+                                }
                             )
                         },
                         //label = { Text(text = stringResource(id = R.string.restock), maxLines = 1)}
                     )
                     NavigationBarItem(
-                        selected = true,
+                        selected = false,
+                        //selected = currentRoute == eventRoute
+                        onClick = { /*TODO*/ },
+                        icon = {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Filled.Event,
+                                        contentDescription = stringResource(id = R.string.event)
+                                    )
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = stringResource(id = R.string.event),
+                                        maxLines = 1,
+                                    )
+                                }
+                            )
+                        },
+                        //label = { Text(text = stringResource(id = R.string.restock), maxLines = 1)}
+                    )
+                    NavigationBarItem(
+                        selected = false,
                         //selected = currentRoute == restockRoute
                         onClick = { /*TODO*/ },
                         icon = {
-                            Icon(
-                                imageVector = Icons.Filled.Settings,
-                                contentDescription = stringResource(id = R.string.settings)
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                content = {
+                                    Icon(
+                                        imageVector = Icons.Filled.Settings,
+                                        contentDescription = stringResource(id = R.string.settings)
+                                    )
+                                    Text(
+                                        textAlign = TextAlign.Center,
+                                        text = stringResource(id = R.string.settings),
+                                        maxLines = 1,
+                                    )
+                                }
                             )
                         },
                         //label = { Text(text = stringResource(id = R.string.restock), maxLines = 1)}
@@ -371,6 +427,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 .padding(12.dp),
                             text = stringResource(id = R.string.shopping_cart),
                             fontSize = 24.sp,
+                            fontWeight = FontWeight.Black,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
@@ -382,10 +439,10 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                             .fillMaxWidth()
                             .weight(1f)
                     ) {
-                        // Inventory for sale
-                        items(10) { cartItem ->
+                        // Cart items
+                        items(4) { cartItem ->
                             Card(
-                                enabled = true,//item.quantity > 0,
+                                enabled = true,
                                 modifier = Modifier
                                     .padding(4.dp)
                                     .fillMaxWidth(),
@@ -435,7 +492,8 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                             .fillMaxWidth()
                                             .padding(8.dp),
                                         // quantity and unit price
-                                        text = "$cartItem.00 €",
+                                        text = "€ $cartItem.00",
+                                        fontWeight = FontWeight.Bold,
                                         textAlign = TextAlign.End,
                                     )
                                 }
@@ -446,7 +504,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                             )
                         }
                         // test montant custom
-                        item {
+                        items(1) { customCartItem ->
                             Row(
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
@@ -454,7 +512,34 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                     modifier = Modifier
                                         .weight(2f)
                                         .padding(8.dp),
-                                    text = "[Montant Custom]",
+                                    text = "[Custom$customCartItem]",
+                                )
+                                Icon(
+                                    imageVector = Icons.Filled.AddCircle,
+                                    contentDescription = "add one of this item",
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .size(52.dp)
+                                        .padding(horizontal = 8.dp, vertical = 4.dp),
+                                )
+                                Text(
+                                    modifier = Modifier
+                                        .weight(0.5f)
+                                        .fillMaxWidth(),
+                                    //.padding(8.dp),
+                                    // quantity and unit price
+                                    text = "1 x",
+                                    fontWeight = FontWeight.Bold,
+                                    textAlign = TextAlign.Center,
+                                    maxLines = 1,
+                                )
+                                Icon(
+                                    imageVector = Icons.Filled.RemoveCircle,
+                                    contentDescription = "remove one of this item",
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .size(52.dp)
+                                        .padding(horizontal = 8.dp, vertical = 4.dp),
                                 )
                                 Text(
                                     modifier = Modifier
@@ -462,7 +547,8 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                         .fillMaxWidth()
                                         .padding(8.dp),
                                     // quantity and unit price
-                                    text = "12.80 €",
+                                    text = "€ 12.80", //$customCartItem.price
+                                    fontWeight = FontWeight.Bold,
                                     textAlign = TextAlign.End,
                                 )
                             }
@@ -474,8 +560,12 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                         // Last item of LazyColumn
                         item {
                             Text(
-                                modifier = Modifier.padding(8.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(12.dp),
                                 textAlign = TextAlign.Center,
+                                fontSize = 12.sp,
+                                fontStyle = FontStyle.Italic,
                                 text = stringResource(id = R.string.last_list_item),
                             )
                         }
@@ -497,6 +587,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                             modifier = Modifier
                                 .weight(2f)
                                 .padding(8.dp),
+                            //enabled = false,
                             onClick = { /* do nothing */ }
                         ) {
                             Text(
@@ -541,7 +632,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                             modifier = Modifier.fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            FilledTonalButton(
+                            OutlinedButton(
                                 modifier = Modifier
                                     .padding(8.dp)
                                     .weight(2f)
@@ -575,7 +666,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 onClick = { /*TODO*/ }
                             ) {
                                 Text(
-                                    text = "Add",
+                                    text = "+ Add",
                                     fontSize = 28.sp,
                                     maxLines = 1,
                                     overflow = TextOverflow.Ellipsis
@@ -584,13 +675,12 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                         }
                         Divider(
                             thickness = 1.dp,
-                            modifier = Modifier.padding(top = 8.dp)
+                            modifier = Modifier.padding(vertical = 8.dp)
                         )
                         LazyVerticalGrid(
                             columns = GridCells.Fixed(3),
                             modifier = Modifier
-                                .fillMaxHeight()
-                                .padding(12.dp),
+                                .padding(horizontal = 12.dp),
                         ) {
                             items(9) { number ->
 
@@ -616,7 +706,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 }
                             }
                             item() {
-                                OutlinedButton(
+                                ElevatedButton(
                                     modifier = Modifier
                                         .padding(8.dp)
                                         //.fillMaxWidth()
@@ -661,7 +751,7 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                                 }
                             }
                             item() {
-                                OutlinedButton(
+                                ElevatedButton(
                                     modifier = Modifier
                                         .padding(8.dp)
                                         //.fillMaxWidth(),
@@ -681,6 +771,15 @@ fun BEPOSScaffoldVente(modifier: Modifier = Modifier) {
                             }
 
                         }
+                        Text(
+                            modifier = Modifier
+                                .padding(12.dp)
+                                .fillMaxSize(),
+                            // quantity and unit price
+                            text = "Pour montant custom",
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.Center,
+                        )
                     }
 
             }

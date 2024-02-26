@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="action_settings">Options</string>
+    <string name="next">Suivant</string>
+    <string name="previous">Précédant</string>
     <string name="fab_action">Nouvelle Transaction</string>
+    <string name="title_home_activity">Homz</string>
+    <string name="inventory">Inventaire</string>
+    <string name="transactions">Transactions</string>
+    <string name="restock">Restock</string>
+    <string name="settings">Paramètres</string>
+    <string name="add">Ajouter</string>
+    <string name="home">Home</string>
     <string name="shopping_cart">Panier</string>
-    <string name="stock">Stock</string>
+    <string name="stock">Inventaire</string>
+    <string name="price">Prix</string>
+    <string name="quantity">Quantité</string>
+    <string name="total">Total</string>
+    <string name="transaction">Transaction</string>
+    <string name="pay">Payer</string>
+    <string name="cancel">Annuler</string>
+    <string name="sale">Vente</string>
+    <string name="event">Évènement</string>
 </resources>
