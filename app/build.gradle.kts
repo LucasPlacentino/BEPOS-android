@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     //id("com.google.devtools.ksp")
-    // Add the Google services Gradle plugin
+    // Add the Google services Gradle plugin (Firebase)
     id("com.google.gms.google-services")
 }
 
@@ -68,6 +68,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    // Material Icons extended library:
     implementation("androidx.compose.material:material-icons-extended") //1.6.1 ?
 
     //! Due to the very large size of this library, make sure to use R8/Proguard to strip unused
@@ -77,10 +78,13 @@ dependencies {
     //implementation("androidx.compose.material:material-icons-extended")
 
     // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     // TODO: Add the dependencies for Firebase products
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    // Firestore :
+    implementation("com.google.firebase:firebase-firestore")
 
     /*
     // Room (SQLite) :

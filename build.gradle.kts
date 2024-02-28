@@ -3,6 +3,6 @@ plugins {
     id("com.android.application") version "8.2.2" apply false
     id("org.jetbrains.kotlin.android") version "1.9.0" apply false
     //id("com.google.devtools.ksp") version "1.8.10-1.0.9" apply false
-    // Add the dependency for the Google services Gradle plugin
-    id("com.google.gms.google-services") version "4.4.0" apply false
+    // Add the dependency for the Google services Gradle plugin (Firebase)
+    id("com.google.gms.google-services") version "4.4.1" apply false
 }
